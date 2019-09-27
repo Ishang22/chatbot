@@ -8,14 +8,6 @@ function getGoogleResult(searchString) {
     return fetch(url)
       .then(res => res.json())
       .then(body => {
-        // let dataToSend = [];
-
-        // console.log(body);
-
-        // for (let i = 0; i < body.items; i++) {
-        //   dataToSend.push(body.items[i].title);
-        // }
-        // console.log(dataToSend);
         return body;
       });
   } catch (e) {

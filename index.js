@@ -14,7 +14,6 @@ client.on("message", msg => {
 console.log("Chat Bot Is Ready");
 
 client.on("message", async message => {
-  console.log("===message.content===", message.content);
   if (message.content.startsWith("!google")) {
     try {
       let searchString = message.content
@@ -23,10 +22,10 @@ client.on("message", async message => {
 
       let data = await fetchGoogleResult(searchString);
       let dataToSend = [];
-      for (let i = 0; i < data.items; i++) {
-        dataToSend.push(data.items[i]);
+
+      for (let i = 0; i < data.items.length; i++) {
+        dataToSend.push(data.items[i].title);
       }
-      //9811737597
       message.reply(dataToSend);
     } catch (e) {
       throw e;
